@@ -1,64 +1,36 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# TwitterClone
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**TwitterClone** is a social media website like [Twitter](https://www.twitter.com) with similar design and functionality.
 
-## About Laravel
+## Functionality
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**TwitterClone** provides the following features:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Create a profile in just one minute, as shown in figure **2**, with all your tweets sorted in a timeline, Trendings, and recommended profiles to follow.
+2. Create a new Tweet by clicking on "+ Tweet" button, then enter the tweet body and tweet tags "separated by `space`", finally hit "Tweet" button (figure **3**), and That's it!
+3. See peoples who follow your profile in addition to who you follow (figure **4**).
+4. See all tweets with a specific tag in **Tag Page** (figure **5**)  by just clicking on any tag title.
+5. Search for new people and profiles to follow by searching for them in the **Search Bar**, as illustrated in figure **6**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Screenshots
 
-## Learning Laravel
+![Home Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/homePage.JPG "Home Page")
+Figure **1**: Home Page.
+![Profile Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/profile.JPG "Profile Page")
+Figure **2**: Profile Page.
+![New Tweet Screen](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/newTweet.JPG "New Tweet Screen")
+Figure **3**: New Tweet Screen.
+![Followers/Following Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/followList.JPG "Followers/Following Page")
+Figure **4**: Followers/Following Page.
+![Tag Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/tagList.JPG "Tag Page '#hello'")
+Figure **5**: Tag Page "#hello".
+![Search Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/search-0.JPG "Search Result Page, ex:'o'")
+Figure **6**: Search Result Page, ex:'o'.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Technology Stack
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Laravel 9 , Vuejs 3 , Bootstrap 5
 
-## Laravel Sponsors
+## Have a Question"?"
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+If you have any question, contact me via my email: sci.ahmedselim@gmail.com .
