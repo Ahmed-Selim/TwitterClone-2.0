@@ -9,8 +9,6 @@ class TweetTag extends Model
 {
     use HasFactory;
 
-    // protected $with = ['tweets'] ;
-
     protected $guarded = [] ;
 
     public function tweets () {

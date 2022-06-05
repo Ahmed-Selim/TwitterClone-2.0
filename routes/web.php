@@ -7,6 +7,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TweetController;
 use App\Http\Controllers\TweetTagController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resources([
     'users' => UserController::class,
     'profiles' => ProfileController::class ,
@@ -34,6 +34,6 @@ Route::resources([
 ]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/profiles/search/{pro}', [ProfileController::class, 'search']);
+Route::get('/profiles/search/{keyword}', [ProfileController::class, 'search']);
 Route::get('/profiles/{user}/followlist', [FollowController::class, 'show'])->name('followlist');
-Route::post('/follow/{user}', [FollowController::class, 'store'])->name('follow') ;
+Route::post('/follow/{user}', [FollowController::class, 'toggleFollow'])->name('follow') ;

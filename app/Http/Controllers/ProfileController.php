@@ -5,80 +5,54 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
-use App\Http\Resources\UserResource;
-use App\Http\Resources\ProfileResource;
-use App\Http\Resources\TweetTagResource;
 use App\Models\TweetTag;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth')->except(['index', 'show']) ;
-        // $this->authorizeResource(Profile::class);
     }
 
     /**
-     * Display a listing of the resource.
-     *
+     * Show the form for creating a new profile.
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
-    
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function create() {
         return view('profiles.create') ;
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created profile in storage.
      *
      * @param  \App\Http\Requests\StoreProfileRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(StoreProfileRequest $request)
-    {
-        if (!$request['profile_image'])
-        {
+    public function store(StoreProfileRequest $request) {
+        if (!$request['profile_image']) {
             $request['profile_image'] = '/img/'.$request['gender'].'.png' ;
         }
-        Auth::user()->profile()->create(
+        Auth::user()->profile->create(
             array_merge(
                 $request->all(),
                 $this->imageArray($request)
             )
         );
-
         return redirect('/profiles/'.auth()->user()->id);
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified profile.
      *
      * @param  \App\Models\Profile  $profile
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
-    public function show(Profile $profile)
-    {
-        // $user = new UserResource($profile->user);
+    public function show(Profile $profile) {
         $user = $profile->user;
-        $latestProfiles = 
-            // Profile::latest()->limit(5)->get()->toArray() ;
-            Profile::whereNotIn('user_id', array_merge(
-                [ $profile->id ],
-                $profile->user->following->pluck('id')->toArray()
-            ))->get();
-        // return $latestProfiles ;
+        $latestProfiles = $this->getLatestProfiles($user);
         $latestTags = TweetTag::with('tweets')->latest()->limit(5)->get();
         $follows = $this->isFollowing($user->profile) ;
         return view ('profiles.show', [
@@ -90,10 +64,10 @@ class ProfileController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified profile.
      *
      * @param  \App\Models\Profile  $profile
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function edit(Profile $profile)
     {
@@ -102,11 +76,11 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified profile in storage.
      *
      * @param  \App\Http\Requests\UpdateProfileRequest  $request
      * @param  \App\Models\Profile  $profile
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateProfileRequest $request, Profile $profile)
     {
@@ -122,28 +96,23 @@ class ProfileController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified profile from storage.
      *
      * @param  \App\Models\Profile  $profile
-     * @return \Illuminate\Http\Response
      */
-    public function destroy(Profile $profile)
-    {
+    public function destroy(Profile $profile) {
         $profile->delete();
     }
 
-    public function search ($pro) {
-        $profiles = 
-            Profile::where("username", "like", "%{$pro}%")
-                ->orWhere("name", "like", "%{$pro}%")->get() 
-        ;
-        $latestProfiles = 
-        // Profile::latest()->limit(5)->get()->toArray() ;
-            Profile::whereNotIn('user_id', array_merge(
-                [ auth()->user()->profile->id ],
-                auth()->user()->following->pluck('id')->toArray()
-            ))->get()
-        ;
+    /**
+     * search for profile with keyword
+     * @param string $keyword
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function search ($keyword) {
+        $profiles = Profile::where("username", "like", "%{$keyword}%")
+                ->orWhere("name", "like", "%{$keyword}%")->get() ;
+        $latestProfiles = $this->getLatestProfiles(Auth::user());
         $latestTags = TweetTag::with('tweets')->latest()->limit(5)->get();
         return view("profiles.search", [
             'profiles' => $profiles,
@@ -180,5 +149,12 @@ class ProfileController extends Controller
             $profile_image ?? [],
             $cover_image ?? []
         );
+    }
+
+    public static function getLatestProfiles (User $user) {
+        return Profile::whereNotIn('user_id', array_merge(
+            [ $user->profile->id ],
+            $user->following->pluck('id')->toArray()
+        ))->get();
     }
 }

@@ -14,7 +14,6 @@ class TweetResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        // return parent::toArray($request);
         return [
             'id' => $this->id,
             'profile_id' => $this->profile_id,

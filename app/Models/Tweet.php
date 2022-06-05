@@ -14,8 +14,7 @@ class Tweet extends Model
     protected $with = ['tags'] ;
 
     protected $fillable = [
-        'profile_id', 'body',
-        // 'media_url'
+        'profile_id', 'body'
     ];
 
     public function profile() {

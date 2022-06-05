@@ -14,14 +14,12 @@ class UserResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        // return parent::toArray($request);
         return [
             'id' => $this->id,
             'email' => $this->email,
             'profile' => $this->profile,
             'followers' => $this->followers,
             'following' => $this->following,
-            // 'password' => $this->password,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];
