@@ -14,17 +14,17 @@
 
 ## Screenshots
 
-![Home Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/homePage.JPG "Home Page")
+![Home Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/blob/main/Screenshots/homePage.JPG "Home Page")
 Figure **1**: Home Page.
-![Profile Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/profile.JPG "Profile Page")
+![Profile Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/blob/main/Screenshots/profile.JPG "Profile Page")
 Figure **2**: Profile Page.
-![New Tweet Screen](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/newTweet.JPG "New Tweet Screen")
+![New Tweet Screen](https://github.com/Ahmed-Selim/TwitterClone-2.0/blob/main/Screenshots/newTweet.JPG "New Tweet Screen")
 Figure **3**: New Tweet Screen.
-![Followers/Following Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/followList.JPG "Followers/Following Page")
+![Followers/Following Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/blob/main/Screenshots/followList.JPG "Followers/Following Page")
 Figure **4**: Followers/Following Page.
-![Tag Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/tagList.JPG "Tag Page '#hello'")
+![Tag Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/blob/main/Screenshots/tagList.JPG "Tag Page '#hello'")
 Figure **5**: Tag Page "#hello".
-![Search Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/main/Screenshots/search-0.JPG "Search Result Page, ex:'o'")
+![Search Page](https://github.com/Ahmed-Selim/TwitterClone-2.0/blob/main/Screenshots/search-0.JPG "Search Result Page, ex:'o'")
 Figure **6**: Search Result Page, ex:'o'.
 
 ## Technology Stack
